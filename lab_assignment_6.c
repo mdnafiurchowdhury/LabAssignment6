@@ -1,7 +1,25 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-int search(int numbers[], int low, int high, int value) 
+// so we hae to write a recursive function which will return a value in a  sorted array 
+// there four steps in binary search for recursive
+// step 1 =  first check if it has only one value
+//  step 2 =value is equal to number [middle], 
+// step 3 greate than or less than
+
+int search(int numbers[], int low, int high, int value) {
 {
+	if (low > high) return -1;
+ int mid = (low+high)/2;
+ if (value < numbers[mid])
+ return search(numbers, low, mid-1, value);
+ else if (value > numbers[mid])
+ return search(numbers, mid+1, high, value);
+ else
+ return mid;
+
+	}
+	
 	return -1;
 }
 
